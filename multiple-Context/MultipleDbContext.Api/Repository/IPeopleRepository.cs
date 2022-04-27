@@ -6,6 +6,6 @@ namespace MultipleDbContext.Api.Repository
     {
         void Post(People people, string contextName);
         void Put(People people, string contextName);
-        List<People> GetAll(string contextName);
+        List<People>? GetAll(string contextName);
     }
 }
