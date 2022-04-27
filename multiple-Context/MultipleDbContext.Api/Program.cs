@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MultipleDbContext.Api.Data;
+using MultipleDbContext.Api.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services
 builder.Services
         .AddDbContext<DbTwoContext>(options => options
         .UseSqlServer(builder.Configuration.GetConnectionString("DbTwoContext")));
+
+builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();
 
 var app = builder.Build();
 
